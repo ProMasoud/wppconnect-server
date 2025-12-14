@@ -76,8 +76,23 @@ const defaultConfig = {
       '--ignore-ssl-errors',
       '--ignore-certificate-errors-spki-list',
     ],
+    /**
+     * Example of configuring the linkPreview generator
+     * If you set this to 'null', it will use global servers; however, you have the option to define your own server
+     * Clone the repository https://github.com/wppconnect-team/wa-js-api-server and host it on your server with ssl
+     *
+     * Configure the attribute as follows:
+     * linkPreviewApiServers: [ 'https://www.yourserver.com/wa-js-api-server' ]
+     *
+     * You can also set via environment variable LINK_PREVIEW_API_SERVERS (comma-separated)
+     */
     linkPreviewApiServers: process.env.LINK_PREVIEW_API_SERVERS ? process.env.LINK_PREVIEW_API_SERVERS.split(',') : null,
-  } as any,
+
+    /**
+     * Set specific whatsapp version
+     */
+    // whatsappVersion: '2.xxxxx',
+  },
   mapper: {
     enable: process.env.MAPPER_ENABLE === 'true',
     prefix: process.env.MAPPER_PREFIX || 'tagone-',
